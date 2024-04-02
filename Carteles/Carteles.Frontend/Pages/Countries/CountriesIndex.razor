@@ -1,0 +1,55 @@
+﻿@page "/countries"
+@using Carteles.Shared.Entities
+@inject Repositories.Interfaces.IRepository repo
+
+
+<h3>Paises</h3>
+<hr>
+@if (Countries == null)
+{
+    <div class="alert alert-warning" role="alert">
+        A simple warning alert—check it out!
+    </div>
+    
+}
+else
+{
+   <div class="table-responsive" >
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Pais</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var country in Countries!)
+                {
+                 <tr>
+                    <th>@country.Name</th>
+                    <td>
+                        <a href="#" class="btn btn-warning" >Editar</a>   
+                        <button class="btn btn-danger" >Borrar</button>
+                    </td>
+                </tr>
+            
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+
+
+
+@code {
+    public List<Country> Countries { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        var responseHttp = await repo.GetAsync<List<Country>>("api/countries");
+        Countries = responseHttp.Response;
+    }
+
+}

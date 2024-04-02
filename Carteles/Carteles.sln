@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34607.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carteles.Backend", "Carteles.Backend\Carteles.Backend.csproj", "{1EE70348-1A09-4FFE-93FF-917D64BD95CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carteles.Backend", "Carteles.Backend\Carteles.Backend.csproj", "{1EE70348-1A09-4FFE-93FF-917D64BD95CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carteles.Shared", "Carteles.Shared\Carteles.Shared.csproj", "{AFA95DC6-2889-4093-9BC4-E2381973BC9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carteles.Shared", "Carteles.Shared\Carteles.Shared.csproj", "{AFA95DC6-2889-4093-9BC4-E2381973BC9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carteles.Frontend", "Carteles.Frontend\Carteles.Frontend.csproj", "{4BD826C3-87E8-4E84-A5AC-3EDB6D26D0DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carteles.Frontend", "Carteles.Frontend\Carteles.Frontend.csproj", "{4BD826C3-87E8-4E84-A5AC-3EDB6D26D0DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
