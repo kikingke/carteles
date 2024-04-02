@@ -1,4 +1,5 @@
 ﻿using Carteles.Backend.Data;
+using Carteles.Shared.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,27 +27,52 @@ namespace Carteles.Backend.Controllers
 
         // GET api/<CountriesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> GetAsync(int id)
         {
-            return "value";
+            var country = await _context.Countries.FirstOrDefaultAsync(c => c.Id == id);
+            if (country == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(country);
         }
+
 
         // POST api/<CountriesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> PostAsync(Country country)
         {
+            _context.Add(country);
+            await _context.SaveChangesAsync();
+            return Ok(country);
         }
 
+
         // PUT api/<CountriesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async Task<IActionResult> PutAsync(Country country)
         {
+            _context.Update(country);
+            await _context.SaveChangesAsync();
+            return Ok(country);
         }
+
 
         // DELETE api/<CountriesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
+            var country = await _context.Countries.FirstOrDefaultAsync(c => c.Id == id);
+            if (country == null)
+            {
+                return NotFound();
+            }
+
+            _context.Remove(country);
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
+
     }
 }
